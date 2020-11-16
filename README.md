@@ -4,13 +4,7 @@
 
 ## WS 20/21 Softwaretechnik
 
-Teammitglieder: 
-Aleksandar Garkov
-Christopher Goldberg
-Christian Schmitz 
-Steffen Weißhaar
-Maximilian Müller
-Felix Zornow
+Teammitglieder: Aleksandar Garkov, Christopher Goldberg, Christian Schmitz, Steffen Weißhaar, Maximilian Müller, Felix Zornow
 
 ## Meilensteine
 
