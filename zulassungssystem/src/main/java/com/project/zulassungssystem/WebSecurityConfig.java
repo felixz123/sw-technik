@@ -1,5 +1,6 @@
 package com.project.zulassungssystem;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -17,6 +18,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
+	/*
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
@@ -31,7 +33,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.withUser("supp")
 			.password("supppw")
 			.roles("UNTERSTUETZER");
+	}*/
+
+
+	@Autowired
+	UserDetailsService userDetailsService;
+
+
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+		auth.userDetailsService(userDetailsService);
 	}
+
+
+
+
+
 
 
 	@Bean
@@ -42,16 +60,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests().antMatchers("/zulassung").hasRole("ZULASSUNG")
-			.and()
-			.authorizeRequests().antMatchers("/bewerber").hasRole("BEWERBER")
-			.and()
-			.authorizeRequests().antMatchers("/unterstuetzer").hasRole("UNTERSTUETZER")
-			.and()
-			.authorizeRequests().antMatchers("/").permitAll()
-			.and()
-			.authorizeRequests().antMatchers("/home").permitAll()
-			.and()
-			.authorizeRequests().antMatchers("/hello").permitAll()
+			.antMatchers("/bewerber").hasRole("BEWERBER")
+			.antMatchers("/unterstuetzer").hasRole("UNTERSTUETZER")
+			.antMatchers("/").permitAll()
+			.antMatchers("/home").permitAll()
+			.antMatchers("/hello").permitAll()
 			.and()
 			.formLogin();
 			
