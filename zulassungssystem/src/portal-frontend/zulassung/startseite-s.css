@@ -1,0 +1,46 @@
+body {font-family: Arial, Helvetica, sans-serif;}
+header{
+    padding: 0px;
+    margin: 0px;
+    width: available;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.img-fluid{
+    float: left;
+}
+#uni-image{
+    padding-top: 10px;
+    margin-left: 400px;
+}
+
+#front1 {
+    text-align: center;
+}
+#a1{
+    background-color: #4CAF50;
+}
+
+ul.top-m{
+    text-align: right;
+}
+
+
