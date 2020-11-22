@@ -20,12 +20,12 @@ class ZulassungsController {
 
 	@GetMapping("/datatable")
 	public String dataTable(Model model) {
-		List<User> students = new ArrayList<User>();
+		List<UserBewerberModel> students = new ArrayList<UserBewerberModel>();
 		// students.add(new User("Jack", "Bauer", "test@test.de", Roles.BEWERBER));
 
 		for (User user : userRepository.findAll()) {
 			if(user.getRole() == Roles.BEWERBER) {
-				students.add(user);
+				students.add(new UserBewerberModel(user.getFirstName(), user.getLastName(), user.getEmail(), user.getBewerber().getStatus(), user.getBewerber().getContent()));
 			}
 		}
 		

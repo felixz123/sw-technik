@@ -43,7 +43,7 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.role = role;
-        this.bewerber = null;
+        this.bewerber = new Bewerber(Status.NICHT_EINGEREICHT, "");
     }
 
     @Override
