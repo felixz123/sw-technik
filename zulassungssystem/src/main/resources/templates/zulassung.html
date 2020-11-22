@@ -2,15 +2,40 @@
 <html>
 
 <head th:replace="base :: head"></head>
-<header th:replace="header :: header"></header>
-<title>Seite des Zulassungsausschusses</title>
-</head>
 
 <body>
-    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
+    <header th:replace="header :: header"></header>
+    <div class="rows">
+        <div>
+            <h1>Bewerberübersicht</h1>
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>Vorname</th>
+                        <th>Nachname</th>
+                        <th>E-Mail</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody th:each="student: ${students}">
+                        <tr>
+                            <td th:text="${student.firstName}">
+                            <td th:text="${student.lastName}">
+                            <td th:text="${student.email}">
+                            <td th:text="${student.status}">
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div>
+            <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Sign Out"/>
+            </form>
+        </div>
+
         <footer th:replace="footer :: footer"></footer>
         <div th:replace="base :: bootstrap-js-jquery-links"></div>
     </body>    

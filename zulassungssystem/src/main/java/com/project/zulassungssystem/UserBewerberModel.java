@@ -14,6 +14,12 @@ public class UserBewerberModel {
 
     private String content;
 
+    private String abschluss;
+
+    private String durchschnitt;
+
+    public UserBewerberModel() {}
+
     public UserBewerberModel(String firstName, String lastName, String email, Status status, String content) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -40,5 +46,13 @@ public class UserBewerberModel {
 
     public String getContent() {
         return content;
+    }
+
+    public String getAbschluss() {
+        return abschluss;
+    }
+
+    public String getDurchschnitt() {
+        return durchschnitt;
     }
 }

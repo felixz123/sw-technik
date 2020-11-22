@@ -22,6 +22,10 @@ public class Bewerber {
 
     private String content;
 
+    private String abschluss;
+
+    private String durchschnitt;
+
     protected Bewerber() {}
 
     public Bewerber(Status status, String content) {
@@ -45,11 +49,27 @@ public class Bewerber {
         return content;
     }
 
+    public String getAbschluss() {
+        return abschluss;
+    }
+
+    public String getDurchschnitt() {
+        return durchschnitt;
+    }
+
     public void setStatus(Status status) {
         this.status = status;
     }
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public void setAbschluss(String abschluss) {
+        this.abschluss = abschluss;
+    }
+
+    public void setDurchschnitt(String durchschnitt) {
+        this.durchschnitt = durchschnitt;
     }
 } 

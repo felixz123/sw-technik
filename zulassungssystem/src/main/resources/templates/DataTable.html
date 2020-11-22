@@ -1,13 +1,12 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-    <p th:text="'Hello!'" />
 
-    <table>
+<head th:replace="base :: head"></head>
+
+<body>
+    <header th:replace="header :: header"></header>
+    <div class="table-responsive">
+    <table class="table">
         <thead>
             <tr>
                 <th>Vorname</th>
@@ -18,12 +17,16 @@
         </thead>
         <tbody th:each="student: ${students}">
             <tr >
-                <td th:text="${student.firstName}" />
-                <td th:text="${student.lastName}" />
-                <td th:text="${student.email}" />
-                <td th:text="${student.status}" />
+                <td th:text="${student.firstName}">
+                <td th:text="${student.lastName}">
+                <td th:text="${student.email}">
+                <td th:text="${student.status}">
             </tr>
         </tbody>
     </table>
+    </div>
+
+    <footer th:replace="footer :: footer"></footer>
+    <div th:replace="base :: bootstrap-js-jquery-links"></div>
 </body>
 </html>
