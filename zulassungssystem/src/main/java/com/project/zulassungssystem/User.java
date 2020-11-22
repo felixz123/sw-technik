@@ -43,7 +43,9 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.role = role;
-        this.bewerber = new Bewerber(Status.NICHT_EINGEREICHT, "");
+        if(role == Roles.BEWERBER) {
+            this.bewerber = new Bewerber(Status.NICHT_EINGEREICHT, "");
+        }
     }
 
     @Override
