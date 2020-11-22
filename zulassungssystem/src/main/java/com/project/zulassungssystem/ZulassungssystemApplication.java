@@ -6,7 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EnableJpaRepositories(basePackageClasses = UserRepository.class)
@@ -23,6 +22,9 @@ public class ZulassungssystemApplication {
 	public CommandLineRunner demo(UserRepository repository) {
 	return (args) -> {
 		// save a few users
+		repository.save(new User("Jack", "Bauer", "zulassung", "ROLE_ZULASSUNG", "1234"));
+		repository.save(new User("Jack", "Bauer", "unterstuetzer", "ROLE_UNTERSTUETZER", "1234"));
+		repository.save(new User("Jack", "Bauer", "bewerber", "ROLE_BEWERBER", "1234"));
 		repository.save(new User("Jack", "Bauer", "test@test.de", "ROLE_BEWERBER", "lol"));
 		repository.save(new User("Chloe", "O'Brian", "cobrian@test.de", "ROLE_BEWERBER", "rofl"));
 		repository.save(new User("Kim", "Bauer", "kbauer@test.com", "ROLE_ZULASSUNG", "stfu"));
