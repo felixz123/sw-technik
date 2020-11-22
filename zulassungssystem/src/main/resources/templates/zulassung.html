@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Seite des Zulassungsausschusses</title>
-    </head>
-    <body>
-        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+
+<head th:replace="base :: head"></head>
+<header th:replace="header :: header"></header>
+<title>Seite des Zulassungsausschusses</title>
+</head>
+
+<body>
+    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
-    </body>
-</html>
+        <footer th:replace="footer :: footer"></footer>
+        <div th:replace="base :: bootstrap-js-jquery-links"></div>
+    </body>    
+    </html>
