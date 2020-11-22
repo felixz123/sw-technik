@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="base :: head"></head>
+
+<body>
+    <header th:replace="header :: header"></header>
+
+    <div class="container features">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <h3 class="feature-title">Bewerber</h3>
+                <a th:href="@{/bewerber}">
+                <img src="images/column-1.jpg" class="img-fluid">
+            </a>
+                <p>Melden Sie sich bitte hier an, wenn Sie einen Bewerberaccount haben</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <h3 class="feature-title">Unterstützer</h3>
+                <a th:href="@{/unterstuetzer}">
+                <img src="images/column-2.jpg" class="img-fluid">
+                </a>
+                <p>Melden Sie sich bitte hier an, wenn Sie einen Unterstützeraccount haben.</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <h3 class="feature-title">Zulassung</h3>
+                <a th:href="@{/zulassung}">
+                <img src="images/column-1.jpg" class="img-fluid">
+                </a>
+                <p>Melden Sie sich bitte hier an, wenn Sie einen Zulassungsaccount haben.</p>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <footer th:replace="footer :: footer"></footer>
+    <div th:replace="base :: bootstrap-js-jquery-links"></div>
+</body>
+
+</html>
