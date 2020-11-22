@@ -80,6 +80,7 @@ public class User {
 
     public void setBewerber(Bewerber bewerber) {
         this.bewerber = bewerber;
+    }
       
     public String getRole() {
         return role;

@@ -24,7 +24,7 @@ class ZulassungsController {
 		// students.add(new User("Jack", "Bauer", "test@test.de", Roles.BEWERBER));
 
 		for (User user : userRepository.findAll()) {
-			if(user.getRole() == Roles.BEWERBER) {
+			if(user.getRole().equals("ROLE_BEWERBER")) {
 				students.add(new UserBewerberModel(user.getFirstName(), user.getLastName(), user.getEmail(), user.getBewerber().getStatus(), user.getBewerber().getContent()));
 			}
 		}
