@@ -14,15 +14,17 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
-    private Roles role;
+    private String role;
+    private String password;
 
     protected User() {}
 
-    public User(String firstName, String lastName, String email, Roles role) {
+    public User(String firstName, String lastName, String email, String role, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.role = role;
+        this.password = password;
     }
 
     @Override
@@ -49,6 +51,11 @@ public class User {
     }
 
     public String getRole() {
-        return role.toString();
+        return role;
     }
-}
+
+    public String getPassword(){
+        return this.password;
+    }
+}   
+
