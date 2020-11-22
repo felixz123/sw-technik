@@ -26,7 +26,9 @@ public class User {
 
     private String email;
 
-    private Roles role;
+    private String role;
+  
+    private String password;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinTable(name = "user_bewerber", 
@@ -38,14 +40,15 @@ public class User {
 
     protected User() {}
 
-    public User(String firstName, String lastName, String email, Roles role) {
+    public User(String firstName, String lastName, String email, String role, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.role = role;
-        if(role == Roles.BEWERBER) {
+        if(role.equals("ROLE_BEWERBER")) {
             this.bewerber = new Bewerber(Status.NICHT_EINGEREICHT, "");
         }
+        this.password = password;
     }
 
     @Override
@@ -71,15 +74,19 @@ public class User {
         return email;
     }
 
-    public Roles getRole() {
-        return role;
-    }
-
     public Bewerber getBewerber() {
         return bewerber;
     }
 
     public void setBewerber(Bewerber bewerber) {
         this.bewerber = bewerber;
+      
+    public String getRole() {
+        return role;
     }
-}
+
+    public String getPassword(){
+        return this.password;
+    }
+}   
+
