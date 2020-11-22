@@ -60,6 +60,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests().antMatchers("/zulassung").hasRole("ZULASSUNG")
+			.antMatchers("/changestatus").hasRole("ZULASSUNG")
+			.antMatchers("/datatable").hasRole("ZULASSUNG")
 			.antMatchers("/bewerber").hasRole("BEWERBER")
 			.antMatchers("/unterstuetzer").hasRole("UNTERSTUETZER")
 			.antMatchers("/").permitAll()
