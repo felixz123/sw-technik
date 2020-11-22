@@ -40,6 +40,8 @@ public class ZulassungssystemApplication {
 		log.info("--------------------------------");
 		log.info(user.toString());
 		log.info("");
+		user.setBewerber(new Bewerber(Status.IN_ARBEIT, "Abitur"));
+		repository.save(user);
   
 		// fetch users by last name
 		log.info("Users found with findByLastName('Bauer'):");
