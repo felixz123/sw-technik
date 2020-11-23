@@ -1,17 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="base :: head"></head>
-<header th:replace="header :: header"></header>
-<title>Seite für Bewerber</title>
-</head>
 
 <body>
-    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
-        <footer th:replace="footer :: footer"></footer>
-        <div th:replace="base :: bootstrap-js-jquery-links"></div>
-    </body>    
-    </html>
+    <header th:replace="header :: header"></header>
+
+    <div class="container features">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <h3 class="feature-title">Willkommen!</h3>
+                <img src="images/column-1.jpg" class="img-fluid">
+
+                <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" class="btn btn-secondary btn-block" value="Sign Out"/>
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <h3 class="feature-title">Lorem ipsum</h3>
+                <img src="images/column-2.jpg" class="img-fluid">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum quam odio, quis placerat ante luctus eu. Sed aliquet dolor id sapien rutrum, id vulputate quam iaculis.</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <h3 class="feature-title">Informationen</h3>
+                <form th:action="@{/bewerber}" th:object="${bewerber}" method="post">
+                <div class="form-group">
+                    <input type="text" th:field="*{abschluss}" class="form-control" placeholder="Abschluss">
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{durchschnitt}" class="form-control" placeholder="Durchschnitt">
+                </div>
+                <div class="form-group">
+                    <textarea th:field="*{content}" class="form-control" rows="4"></textarea>
+                </div>
+                <p><input type="submit" class="btn btn-secondary btn-block" value="Submit"><input type="reset" class="btn btn-secondary btn-block" value="Reset"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="footer :: footer"></footer>
+    <div th:replace="base :: bootstrap-js-jquery-links"></div>
+</body>
+
+</html>
